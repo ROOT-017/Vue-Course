@@ -1,9 +1,15 @@
 <template>
-  <h4 class="header">ROOT TECH</h4>
+  <div>
+    <MainNav />
+  </div>
 </template>
 
 <script>
+import MainNav from "@/components/MainNav.vue";
 export default {
   name: "App",
+  components: {
+    MainNav,
+  },
 };
 </script>
