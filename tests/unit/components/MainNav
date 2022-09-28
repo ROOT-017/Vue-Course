@@ -1,0 +1,45 @@
+import { mount } from "@vue/test-utils";
+import MainNav from "@/components/MainNav.vue";
+import { data } from "autoprefixer";
+
+describe("MainNav", () => {
+  it("renders company name", () => {
+    const wrapper = mount(MainNav);
+
+    expect(wrapper.text()).toContain("ROOT Careers");
+  });
+  it("displays menu items for navigations", () => {
+    const wrapper = mount(MainNav);
+    const navigation = wrapper.findAll("li");
+  });
+
+  describe("when user is logged out", () => {
+    it("prompt user to sign in", () => {
+      const wrapper = mount(MainNav, {
+        data() {
+          isLoggedIn: false;
+        },
+      });
+
+      const loginButton = wrapper.find("[data-test='login-button']");
+      const profileImage = wrapper.find("[data-test='profile-image']");
+      expect(loginButton.exists()).toBe(true);
+      expect(profileImage.exists()).toBe(false);
+    });
+  });
+
+  describe("when user logged in", () => {
+    it("displays profile picture", () => {
+      const wrapper = mount(MainNav, {
+        data() {
+          isLoggedIn: true;
+        },
+      });
+
+      const loginButton = wrapper.find("[data-test='login-button']");
+      const profileImage = wrapper.find("[data-test='profile-image']");
+      expect(loginButton.exists()).toBe(false);
+      expect(profileImage.exists()).toBe(true);
+    });
+  });
+});
