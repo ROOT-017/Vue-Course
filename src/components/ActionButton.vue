@@ -39,7 +39,7 @@ button {
   @apply px-5 py-3 font-medium;
 }
 .primary {
-  @apply text-white rounded bg-brand-blue-1 hover:shadow-blue-1;
+  @apply text-white rounded  bg-brand-blue-1 hover:shadow-blue-1;
 }
 .secondary {
   @apply text-brand-blue-1 bg-transparent hover:bg-brand-blue-2 hover:text-white;
