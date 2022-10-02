@@ -8,7 +8,11 @@
             <HeadLine />
             <JobSearchForm />
           </div>
-          <div class="col-start-7 col-span-5"></div>
+          <div class="col-start-7 col-span-5">
+            <div class="flex justify-center h-full">
+              <HeroImage />
+            </div>
+          </div>
           <div class="col-start-12 col-span-1"></div>
         </div>
       </section>
@@ -18,12 +22,15 @@
 
 <script>
 import HeadLine from "./HeadLine.vue";
-import JobSearchForm from "./JobSearchForm.vue";
+import JobSearchForm from "../navigation/JobSearchForm.vue";
+import HeroImage from "./HeroImage.vue";
+
 export default {
   name: "HeroVue",
   components: {
     HeadLine,
     JobSearchForm,
+    HeroImage,
   },
 };
 </script>
