@@ -6,7 +6,14 @@
     <div class="flex flex-nowrap flex-1 h-full text-base font-light">
       <div class="relative flex items-center flex-1 h-full pr-3">
         <label class="absolute left-0 -top-10" for="role">Role</label>
-        <TextInput placeholder="Software Engineer" @handle-input="updateRole" />
+        <TextInput
+          v-model="role"
+          placeholder="Software Engineer"
+          label="role"
+        />
+        <!--  :value="role"  @handle-input="updateRole" -->
+        <!--         <TextInput placeholder="Software Engineer" @handle-input="role= $event" />
+ -->
       </div>
       <span
         class="flex items-center px-3 h-full border-l border-r border-brand-gray-3 bg-brand-gray-2"
@@ -14,7 +21,14 @@
       >
       <div class="relative flex items-center flex-1 h-full pl-3">
         <label class="absolute left-0 -top-10" for="location">Where?</label>
-        <TextInput placeholder="Los Angeles" @handle-input="updateLocation" />
+        <TextInput
+          v-model="location"
+          placeholder="Los Angeles"
+          label="location"
+        />
+        <!--   :value="location" @handle-input="updateLocation" -->
+        <!--         <TextInput placeholder="Software Engineer" @handle-input="location= $event" />
+ -->
       </div>
     </div>
     <ActionButton button-text="Search" type="secondary" class="rounded-r-3xl" />
@@ -35,12 +49,12 @@ export default {
     };
   },
   methods: {
-    updateRole(payload) {
-      this.role = payload;
-    },
-    updateLocation(payload) {
-      this.location = payload;
-    },
+    // updateRole(payload) {
+    //   this.role = payload;
+    // },
+    // updateLocation(payload) {
+    //   this.location = payload;
+    // },
   },
 };
 </script>
