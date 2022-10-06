@@ -4,6 +4,7 @@
 
 <script>
 import profileImage from "@/assets/TERENCETOON.png";
+
 export default {
   name: "ProfileImage",
   data() {

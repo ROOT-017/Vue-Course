@@ -32,5 +32,6 @@ export default {
     JobSearchForm,
     HeroImage,
   },
+  methods: {},
 };
 </script>
