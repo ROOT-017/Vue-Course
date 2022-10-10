@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col p-1 bg-white border-r border-solid border-brand-gray-1 w-96"
+    class="flex flex-col p-4 bg-white border-r border-solid border-brand-gray-1 w-96"
   >
     <section class="pb-5">
       <div class="flex flex-row justify-between">
@@ -9,15 +9,10 @@
           <ActionButton button-text="Clear Filter" type="secondary" />
         </div>
       </div>
-      <AccordionVue header="">
-        <div class="mt-5">
-          <fieldset>
-            <ul class="flex flex-row flex-wrap">
-              <li class="w-1/2 h-8"></li>
-            </ul>
-          </fieldset>
-        </div>
-      </AccordionVue>
+      <AccordionVue header="Degree's"
+        ><h2>Here will be the requires degrees</h2></AccordionVue
+      >
+      <JobFilterSideBarJobTypesVue />
       <JobFilterSideBarOrganisationVue />
     </section>
   </div>
@@ -25,14 +20,17 @@
 
 <script>
 import ActionButton from "@/shared/ActionButton.vue";
-import AccordionVue from "@/shared/AccordionVue.vue";
+//import AccordionVue from "@/shared/AccordionVue.vue";
 import JobFilterSideBarOrganisationVue from ".//JobFilterSideBarOrganisation.vue";
+import AccordionVue from "@/shared/AccordionVue.vue";
+import JobFilterSideBarJobTypesVue from ".//JobFilterSideBarJobTypes.vue";
 export default {
   name: "JobFilterSideBar",
   components: {
     ActionButton,
-    AccordionVue,
     JobFilterSideBarOrganisationVue,
+    AccordionVue,
+    JobFilterSideBarJobTypesVue,
   },
 };
 </script>

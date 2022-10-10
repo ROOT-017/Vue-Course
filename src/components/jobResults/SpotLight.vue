@@ -1,14 +1,18 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="spotlight in spotlights" :key="spotlight.id">
-        <slot :spotlight="spotlight"></slot>
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <li v-for="spotlight in spotlights" :key="spotlight.id">
+      <slot
+        :img="spotlight.img"
+        :title="spotlight.title"
+        :description="spotlight.description"
+      ></slot>
+    </li>
+  </ul>
 </template>
 
 <script>
+//import { mapGetters } from "vuex";
+
 import axios from "axios";
 export default {
   name: "SpotLight",
