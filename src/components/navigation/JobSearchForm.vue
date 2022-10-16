@@ -12,9 +12,6 @@
           placeholder="Software Engineer"
           label="role"
         />
-        <!--  :value="role"  @handle-input="updateRole" -->
-        <!--         <TextInput placeholder="Software Engineer" @handle-input="role= $event" />
- -->
       </div>
       <span
         class="flex items-center px-3 h-full border-l border-r border-brand-gray-3 bg-brand-gray-2"
@@ -27,9 +24,6 @@
           placeholder="Los Angeles"
           label="location"
         />
-        <!--   :value="location" @handle-input="updateLocation" -->
-        <!--         <TextInput placeholder="Software Engineer" @handle-input="location= $event" />
- -->
       </div>
     </div>
     <ActionButton button-text="Search" type="secondary" class="rounded-r-3xl" />
