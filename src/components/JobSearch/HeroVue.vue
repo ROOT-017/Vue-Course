@@ -39,13 +39,13 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import HeadLine from "./HeadLine.vue";
 import JobSearchForm from "../navigation/JobSearchForm.vue";
 import HeroImage from "./HeroImage.vue";
 import SpotLightVue from "@/components/jobResults/SpotLight.vue";
-
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "HeroVue",
   components: {
     HeadLine,
@@ -53,5 +53,5 @@ export default {
     HeroImage,
     SpotLightVue,
   },
-};
+});
 </script>

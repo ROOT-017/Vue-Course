@@ -30,13 +30,13 @@
   </form>
 </template>
 
-<script>
+<script lang="ts">
 import ActionButton from "@/shared/ActionButton.vue";
 import TextInput from "@/shared/TextInput.vue";
-import { ref } from "vue";
+import { ref, defineComponent } from "vue";
 import { useRouter } from "vue-router";
 
-export default {
+export default defineComponent({
   name: "JobSearchForm",
   components: { ActionButton, TextInput },
   setup() {
@@ -74,5 +74,5 @@ export default {
   //     });
   //   },
   // },
-};
+});
 </script>

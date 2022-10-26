@@ -23,14 +23,15 @@
 <script>
 //import { mapGetters, mapMutations } from "vuex";
 //import { ADD_SELECTED_ORGANISATIONS } from "@/store/contants";
-import { ref } from "vue";
+import { ref, defineComponent } from "vue";
 import { useStore } from "vuex";
 //import { useUniqueOrganisation } from "@/store/composables";
 import { useRouter } from "vue-router";
 
 import AccordionVue from "@/shared/AccordionVue.vue";
+import { Key } from "@/store";
 
-export default {
+export default defineComponent({
   name: "JobFiltersSideBarCheckboxGroup",
   components: {
     AccordionVue,
@@ -50,7 +51,7 @@ export default {
     },
   },
   setup(props) {
-    const store = useStore();
+    const store = useStore(Key);
     const router = useRouter();
 
     const selectedValues = ref([]);
@@ -84,5 +85,5 @@ export default {
   //     this.$router.push({ name: "JobResult" });
   //   },
   // },
-};
+});
 </script>

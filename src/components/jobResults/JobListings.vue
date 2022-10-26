@@ -39,9 +39,9 @@ import { useFilteredJobs, useFetchJobsDispatch } from "@/store/composables";
 //import { FETCH_JOBS, FILTERED_JOBS } from "@/store/contants";
 import JobListing from "@/components/jobResults/JobListing.vue";
 
-import useCurrentPage from "@/composables/tsFiles/useCurrentPage";
+import useCurrentPage from "@/composables/useCurrentPage";
 
-import usePreviousAndNextPage from "@/composables/tsFiles/usePreviousAndNextPage";
+import usePreviousAndNextPage from "@/composables/usePreviousAndNextPage";
 
 export default defineComponent({
   name: "JobListings",

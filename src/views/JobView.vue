@@ -1,14 +1,25 @@
 <template>
-  <div>RSULT View{{ currentJobIdSearch }}</div>
+  <div>
+    <h1>RESULT View</h1>
+    {{ currentJobIdSearch }}
+  </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { computed, defineComponent } from "vue";
+
+import { useRoute } from "vue-router";
+
+export default defineComponent({
   name: "JobView",
-  computed: {
-    currentJobIdSearch() {
-      return this.$route.params.id;
-    },
+
+  setup() {
+    const currentJobIdSearch = computed(() => {
+      const route = useRoute();
+      const curentJobId = route.params.id;
+      return curentJobId;
+    });
+    return { currentJobIdSearch };
   },
-};
+});
 </script>

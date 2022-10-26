@@ -11,7 +11,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import NextElementInList from "@/utils/NextElementInList.js";
+import NextElementInList from "@/utils/NextElementInList";
 interface TitleClasses {
   [x: string]: boolean;
 }
