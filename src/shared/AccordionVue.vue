@@ -5,12 +5,16 @@
       <font-awesome-icon :icon="caretIcon" />
     </div>
     <div v-if="isOpen" class="w-full mt-5">
-      <slot></slot>
+      <slot>
+        <p>Not added yet! Sorry!</p>
+      </slot>
     </div>
   </div>
 </template>
 
 <script>
+import { ref, computed } from "vue";
+
 export default {
   name: "AccordionVue",
   props: {
@@ -19,21 +23,33 @@ export default {
       required: true,
     },
   },
+  setup() {
+    const isOpen = ref(false);
 
-  data() {
-    return {
-      isOpen: false,
+    const open = () => {
+      isOpen.value = !isOpen.value;
     };
+    const caretIcon = computed(() => {
+      return isOpen.value ? ["fas", "angle-up"] : ["fas", "angle-down"];
+    });
+
+    return { isOpen, open, caretIcon };
   },
-  computed: {
-    caretIcon() {
-      return this.isOpen ? ["fas", "angle-up"] : ["fas", "angle-down"];
-    },
-  },
-  methods: {
-    open() {
-      this.isOpen = !this.isOpen;
-    },
-  },
+
+  // data() {
+  //   return {
+  //     isOpen: false,
+  //   };
+  // },
+  // computed: {
+  //   caretIcon() {
+  //     return this.isOpen ? ["fas", "angle-up"] : ["fas", "angle-down"];
+  //   },
+  // },
+  // methods: {
+  //   open() {
+  //     this.isOpen = !this.isOpen;
+  //   },
+  // },
 };
 </script>

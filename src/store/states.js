@@ -4,7 +4,7 @@ const state = () => {
     jobs: [],
     selectedOrganisations: [],
     onJobPage: false,
-    SelectedvJobTypes: [],
+    selectedJobTypes: [],
   };
 };
 

@@ -14,18 +14,32 @@
 //import { mapGetters } from "vuex";
 
 import axios from "axios";
+import { ref, onMounted } from "vue";
 export default {
   name: "SpotLight",
-  data() {
-    return {
-      spotlights: [],
+  setup() {
+    const spotlights = ref([]);
+
+    const getSpotlights = async () => {
+      const baseUrl = process.env.VUE_APP_API_URL;
+      const url = `${baseUrl}/spotlight`;
+      const response = await axios.get(url);
+      spotlights.value = response.data;
     };
+    onMounted(getSpotlights);
+
+    return { spotlights };
   },
-  async mounted() {
-    const baseUrl = process.env.VUE_APP_API_URL;
-    const url = `${baseUrl}/spotlight`;
-    const response = await axios.get(url);
-    this.spotlights = response.data;
-  },
+  // data() {
+  //   return {
+  //     spotlights: [],
+  //   };
+  // },
+  // async mounted() {
+  //   const baseUrl = process.env.VUE_APP_API_URL;
+  //   const url = `${baseUrl}/spotlight`;
+  //   const response = await axios.get(url);
+  //   this.spotlights = response.data;
+  // },
 };
 </script>

@@ -1,22 +1,18 @@
 <template>
-  <AccordionVue header="Organisation">
+  <AccordionVue :header="header">
     <div class="mt-5">
       <fieldset>
         <ul class="flex flex-row flex-wrap">
-          <li
-            v-for="organisation in uniqueOrganisation"
-            :key="organisation"
-            class="w-1/2 h-8"
-          >
+          <li v-for="value in uniqueValues" :key="value" class="w-1/2 h-8">
             <input
-              :id="organisation"
-              v-model="selectedOrganisations"
-              :value="organisation"
+              :id="value"
+              v-model="selectedValues"
+              :value="value"
               type="checkbox"
               class="mr-3"
-              @change="selectOrganisation"
+              @change="selectValue"
             />
-            <label :for="organisation"> {{ organisation }}</label>
+            <label :for="value"> {{ value }}</label>
           </li>
         </ul>
       </fieldset>
@@ -26,33 +22,48 @@
 
 <script>
 //import { mapGetters, mapMutations } from "vuex";
-import { ADD_SELECTED_ORGANISATIONS } from "@/store/contants";
+//import { ADD_SELECTED_ORGANISATIONS } from "@/store/contants";
 import { ref } from "vue";
 import { useStore } from "vuex";
-import { useUniqueOrganisation } from "@/store/composables";
+//import { useUniqueOrganisation } from "@/store/composables";
 import { useRouter } from "vue-router";
 
 import AccordionVue from "@/shared/AccordionVue.vue";
 
 export default {
-  name: "JobFilterSideBarOrganisation",
+  name: "JobFiltersSideBarCheckboxGroup",
   components: {
     AccordionVue,
   },
-  setup() {
+  props: {
+    header: {
+      type: String,
+      required: true,
+    },
+    uniqueValues: {
+      type: Set,
+      required: true,
+    },
+    mutation: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(props) {
     const store = useStore();
     const router = useRouter();
 
-    const selectedOrganisations = ref([]);
+    const selectedValues = ref([]);
 
-    const uniqueOrganisation = useUniqueOrganisation();
+    // const uniqueOrganisation = useUniqueOrganisation();
 
-    const selectOrganisation = () => {
-      store.commit(ADD_SELECTED_ORGANISATIONS, selectedOrganisations.value);
+    const selectValue = () => {
+      //      store.commit(ADD_SELECTED_ORGANISATIONS, selectedValues.value);
+      store.commit(props.mutation, selectedValues.value);
       router.push({ name: "JobResult" });
     };
 
-    return { selectedOrganisations, uniqueOrganisation, selectOrganisation };
+    return { selectedValues, selectValue };
   },
   // data() {
   //   return {

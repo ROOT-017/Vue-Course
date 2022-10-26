@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { computed } from "vue";
 export default {
   name: "JobListing",
   props: {
@@ -58,10 +59,15 @@ export default {
       required: true,
     },
   },
-  computed: {
-    jobPageUrl() {
-      return `/jobs/results/${this.job.id}`;
-    },
+  setup(props) {
+    const jobPageUrl = computed(() => `/jobs/results/${props.job.id}`);
+    return { jobPageUrl };
   },
+  // },
+  // computed: {
+  //   jobPageUrl() {
+  //     return `/jobs/results/${this.job.id}`;
+  //   },
+  // },
 };
 </script>

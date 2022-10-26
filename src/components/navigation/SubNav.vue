@@ -1,12 +1,12 @@
 <template>
   <div class="w-full h-16 bg-white border-b border-solid border-band-gray-1">
     <div class="flex items-center h-full px-8">
-      <div v-if="onJobPageComputed" data-test="job-count">
+      <div v-if="onJobResultsPage" data-test="job-count">
         <font-awesome-icon :icon="['fas', 'search']" class="mr-3" />
 
         <span
           ><span class="text-brand-green-1"
-            >{{ FILTERED_JOBS_BY_ORGANISATIONS.length + " " }} </span
+            >{{ FILTERED_JOBS.length + " " }} </span
           >Jobs match</span
         >
       </div>
@@ -15,26 +15,38 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { FILTERED_JOBS_BY_ORGANISATIONS } from "@/store/contants";
+// import { mapGetters } from "vuex";
+// import { FILTERED_JOBS } from "@/store/contants";
+
+// import { computed } from "vue";
+// import { useStore } from "vuex";
+//import { useRoute } from "vue-router";
+import useConfirmRoute from "@/composables/useConfirmRoute";
+import { useFilteredJobs } from "@/store/composables";
+
 export default {
   name: "SubNav",
-  // data() {
-  //   return {
-  //     onJobPage: true,
-  //   };
-  // },
 
-  computed: {
-    onJobPageComputed() {
-      if (this.$route.path.includes("jobs/results")) {
-        return true;
-      }
-      return false;
-    },
-    ...mapGetters([FILTERED_JOBS_BY_ORGANISATIONS]),
+  setup() {
+    const onJobResultsPage = useConfirmRoute("JobResult");
+    // const route = useRoute();
+    // const onJobResultsPage = computed(() => route.name === "JobResult"); // <--- this is the computed property that we are using to determine if we are on the JobResults page
+    // route.path.includes("jobs/results"));
+
+    //const store = useStore();
+    const FILTERED_JOBS = useFilteredJobs(); // <--- this is the computed property that we are using to determine the number of jobs that match the search criteria
+
+    return { onJobResultsPage, FILTERED_JOBS };
   },
 
-  methods: {},
+  // computed: {
+  //   ...mapGetters([FILTERED_JOBS]),
+  //   onJobResultsPage() {
+  //     if (this.$route.path) {
+  //       return true;
+  //     }
+  //     return false;
+  //   },
+  // },
 };
 </script>
