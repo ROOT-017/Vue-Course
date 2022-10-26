@@ -29,9 +29,9 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 //import { mapActions, mapGetters } from "vuex";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, defineComponent } from "vue";
 //import { useStore } from "vuex";
 //import { useRoute } from "vue-router";
 import { useFilteredJobs, useFetchJobsDispatch } from "@/store/composables";
@@ -39,11 +39,11 @@ import { useFilteredJobs, useFetchJobsDispatch } from "@/store/composables";
 //import { FETCH_JOBS, FILTERED_JOBS } from "@/store/contants";
 import JobListing from "@/components/jobResults/JobListing.vue";
 
-import useCurrentPage from "@/composables/useCurrentPage";
+import useCurrentPage from "@/composables/tsFiles/useCurrentPage";
 
-import usePreviousAndNextPage from "@/composables/usePreviousAndNextPage";
+import usePreviousAndNextPage from "@/composables/tsFiles/usePreviousAndNextPage";
 
-export default {
+export default defineComponent({
   name: "JobListings",
   components: {
     JobListing,
@@ -59,9 +59,10 @@ export default {
     const maxPage = computed(() => Math.ceil(filteredJobs.value.length / 10));
 
     const currentPage = useCurrentPage();
+
     const { previousPage, nextPage } = usePreviousAndNextPage(
-      currentPage.value,
-      maxPage.value
+      currentPage,
+      maxPage
     );
     // const previousPage = computed(() => {
     //   const previousPage = currentPage.value - 1;
@@ -81,7 +82,12 @@ export default {
       const lastJobIndex = pageNumber * 10;
       return filteredJobs.value.slice(firstJobIndex, lastJobIndex);
     });
-
+    //  displayJobs() {
+    //     const pageNumber = this.currentPage;
+    //     const firstJobIndex = (pageNumber - 1) * 10;
+    //     const lastJobIndex = pageNumber * 10;
+    //     return this.FILTERED_JOBS.slice(firstJobIndex, lastJobIndex);
+    //   },
     onMounted(useFetchJobsDispatch);
     return {
       displayJobs,
@@ -128,5 +134,5 @@ export default {
   // methods: {
   //   ...mapActions([FETCH_JOBS]),
   // },
-};
+});
 </script>

@@ -14,17 +14,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // import { mapGetters } from "vuex";
 // import { FILTERED_JOBS } from "@/store/contants";
 
 // import { computed } from "vue";
 // import { useStore } from "vuex";
 //import { useRoute } from "vue-router";
-import useConfirmRoute from "@/composables/useConfirmRoute";
+import useConfirmRoute from "@/composables/tsFiles/useConfirmRoute";
 import { useFilteredJobs } from "@/store/composables";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   name: "SubNav",
 
   setup() {
@@ -48,5 +49,5 @@ export default {
   //     return false;
   //   },
   // },
-};
+});
 </script>

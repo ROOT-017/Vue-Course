@@ -3,9 +3,9 @@ export interface Job {
   title: string;
   organization: string;
   description: string;
-  location: string;
+  locations: string;
   jobType: string;
-  mininumQualifications: string[];
+  minimumQualifications: string[];
   preferedQualifications: string[];
   dataAdded: string;
 }

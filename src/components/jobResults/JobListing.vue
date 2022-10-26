@@ -49,13 +49,16 @@
   </li>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent, PropType } from "vue";
+import { Job } from "@/api/types";
 import { computed } from "vue";
-export default {
+
+export default defineComponent({
   name: "JobListing",
   props: {
     job: {
-      type: Object,
+      type: Object as PropType<Job>,
       required: true,
     },
   },
@@ -69,5 +72,5 @@ export default {
   //     return `/jobs/results/${this.job.id}`;
   //   },
   // },
-};
+});
 </script>
