@@ -1,16 +1,17 @@
 <template>
-  <img :src="Image" alt="" class="w-8 h-8 rounded-xl object-contain" />
+  <img :src="Image" alt="userImage" class="w-8 h-8 rounded-xl object-contain" />
 </template>
 
-<script>
-import profileImage from "@/assets/TERENCETOON.png";
+<script lang="ts">
+//import Img from "@/assets/TERENCETOON.png";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   name: "ProfileImage",
   data() {
     return {
-      Image: profileImage,
+      Image: "@/assets/TERENCETOON.png",
     };
   },
-};
+});
 </script>

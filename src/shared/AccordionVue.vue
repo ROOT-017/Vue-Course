@@ -12,10 +12,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref, computed } from "vue";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   name: "AccordionVue",
   props: {
     header: {
@@ -51,5 +52,5 @@ export default {
   //     this.isOpen = !this.isOpen;
   //   },
   // },
-};
+});
 </script>

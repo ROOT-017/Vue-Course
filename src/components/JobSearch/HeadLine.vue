@@ -8,20 +8,31 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import NextElementInList from "@/utils/NextElementInList.js";
-export default {
+interface TitleClasses {
+  [x: string]: boolean;
+}
+
+interface Data {
+  title: string;
+  interval: number | undefined;
+}
+
+export default defineComponent({
   name: "HeadLine",
 
-  data() {
+  data(): Data {
     return {
       title: "Build",
-      interval: null,
+      interval: undefined,
     };
   },
 
   computed: {
-    titleClasses() {
+    titleClasses(): TitleClasses {
       return {
         [this.title.toLowerCase()]: true,
         // build: this.title === "Build",
@@ -42,13 +53,13 @@ export default {
 
   methods: {
     changeTitle() {
+      const titles = ["Build", "Create", "Design", "Code"];
       this.interval = setInterval(() => {
-        const titles = ["Build", "Create", "Design", "Code"];
         this.title = NextElementInList(titles, this.title);
       }, 5000);
     },
   },
-};
+});
 </script>
 
 <style scope>

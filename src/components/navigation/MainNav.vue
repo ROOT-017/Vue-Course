@@ -32,11 +32,7 @@
           </ul>
         </nav>
         <div class="flex items-center h-full ml-auto">
-          <ProfileImage
-            v-if="isLoggedIn"
-            data-test="profile-image"
-            @click="logoutUser"
-          />
+          <ProfileImage v-if="isLoggedIn" data-test="profile-image" />
 
           <ActionButton
             v-else
@@ -53,7 +49,9 @@
   <div></div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import { mapMutations, mapState } from "vuex";
 import ProfileImage from "@/components/navigation/ProfileImage.vue";
 import ActionButton from "@/shared/ActionButton.vue";
@@ -61,7 +59,7 @@ import SubNav from "@/components/navigation/SubNav.vue";
 
 import { LOGIN_USER } from "@/store/contants"; // import the mutation
 
-export default {
+export default defineComponent({
   name: "MainNav",
   components: {
     ActionButton,
@@ -95,11 +93,8 @@ export default {
     //   this.$store.commit(LOGIN_USER);
     // },
     ...mapMutations([LOGIN_USER]), // <--- this is the same as the commented out code above
-    logoutUser() {
-      //   this.$store.commit("LOGIN_USER");
-    },
   },
-};
+});
 </script>
 
 <style>

@@ -7,20 +7,21 @@ import {
   UNIQUE_ORGANISATIONS,
 } from "./contants";
 
+import { Job } from "@/api/types";
 /*Getters */
 export const useFilteredJobs = () => {
   const store = useStore();
-  return computed(() => store.getters[FILTERED_JOBS]); // <--- this is the computed property that we are using to determine the number of jobs that match the search criteria
+  return computed<Job[]>(() => store.getters[FILTERED_JOBS]); // <--- this is the computed property that we are using to determine the number of jobs that match the search criteria
 };
 
 export const useUniqueJobTypes = () => {
   const store = useStore();
-  return computed(() => store.getters[UNIQUE_JOB_TYPES]);
+  return computed<Set<string>>(() => store.getters[UNIQUE_JOB_TYPES]);
 };
 
 export const useUniqueOrganisation = () => {
   const store = useStore();
-  return computed(() => store.getters[UNIQUE_ORGANISATIONS]);
+  return computed<Set<string>>(() => store.getters[UNIQUE_ORGANISATIONS]);
 };
 
 /*Actions */
