@@ -57,7 +57,7 @@ import ProfileImage from "@/components/navigation/ProfileImage.vue";
 import ActionButton from "@/shared/ActionButton.vue";
 import SubNav from "@/components/navigation/SubNav.vue";
 
-import { LOGIN_USER } from "@/store/contants"; // import the mutation
+import { LOGIN_USER } from "@/store/constant"; // import the mutation
 
 export default defineComponent({
   name: "MainNav",

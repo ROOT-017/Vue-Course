@@ -26,7 +26,7 @@
 
 <script>
 //import { mapGetters, mapMutations } from "vuex";
-import { ADD_SELECTED_JOB_TYPES } from "@/store/contants";
+import { ADD_SELECTED_JOB_TYPES } from "@/store/constant";
 import AccordionVue from "@/shared/AccordionVue.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";

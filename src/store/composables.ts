@@ -5,7 +5,9 @@ import {
   FILTERED_JOBS,
   UNIQUE_JOB_TYPES,
   UNIQUE_ORGANISATIONS,
-} from "./contants";
+  UNIQUE_DEGREE,
+  FETCH_DEGREES,
+} from "./constant";
 
 import { Job } from "@/api/types";
 import { Key } from ".";
@@ -26,9 +28,19 @@ export const useUniqueOrganisation = () => {
   return computed<Set<string>>(() => store.getters[UNIQUE_ORGANISATIONS]);
 };
 
+export const useUniqueDegree = () => {
+  const store = useStore(Key);
+  return computed<string[]>(() => store.getters[UNIQUE_DEGREE]);
+};
+
 /*Actions */
 
 export const useFetchJobsDispatch = () => {
   const store = useStore(Key);
   store.dispatch(FETCH_JOBS);
+};
+
+export const useFetchdegreesDispatch = () => {
+  const store = useStore(Key);
+  store.dispatch(FETCH_DEGREES);
 };

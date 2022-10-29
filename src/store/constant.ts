@@ -2,9 +2,18 @@
 export const LOGIN_USER = "LOGIN_USER"; // action
 
 //JOBS
-export const RECIEVED_JOBS = "RECIEVED_JOBS"; // typo in the video
+export const RECIEVED_JOBS = "RECIEVED_JOBS"; //
 export const FETCH_JOBS = "FETCH_JOBS"; // <--- new
 export const FILTERED_JOBS = "FILTERED_JOBS";
+export const CLEAR_USER_JOB_FILTER_SELECTIONS =
+  "CLEAR_USER_JOB_FILTER_SELECTIONS";
+
+//DEGREES
+export const RECIEVED_DEGREES = "RECIEVED_DEGREES"; //
+export const FETCH_DEGREES = "FETCH_DEGREES"; // <--- new
+export const UNIQUE_DEGREE = "UNIQUE_DEGREE"; // <--- new
+export const INCLUDE_JOBS_BY_DEGREE = "INCLUDE_JOBS_BY_DEGREE"; // <--- new
+export const ADD_SELECTED_JOB_DEGREE = "ADD_SELECTED_JOB_DEGREE"; // <--- new
 
 //ORGANISATIONS
 export const UNIQUE_ORGANISATIONS = "UNIQUE_ORGANISATIONS"; // <--- new

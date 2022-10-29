@@ -20,10 +20,10 @@
   </AccordionVue>
 </template>
 
-<script>
+<script lang="ts">
 //import { mapGetters, mapMutations } from "vuex";
-//import { ADD_SELECTED_ORGANISATIONS } from "@/store/contants";
-import { ref, defineComponent } from "vue";
+//import { ADD_SELECTED_ORGANISATIONS } from "@/store/constant";
+import { ref, defineComponent, PropType } from "vue";
 import { useStore } from "vuex";
 //import { useUniqueOrganisation } from "@/store/composables";
 import { useRouter } from "vue-router";
@@ -42,7 +42,7 @@ export default defineComponent({
       required: true,
     },
     uniqueValues: {
-      type: Set,
+      type: [Set, Array] as PropType<string[]> | PropType<Set<string>>,
       required: true,
     },
     mutation: {
@@ -54,7 +54,7 @@ export default defineComponent({
     const store = useStore(Key);
     const router = useRouter();
 
-    const selectedValues = ref([]);
+    const selectedValues = ref<string[]>([]);
 
     // const uniqueOrganisation = useUniqueOrganisation();
 

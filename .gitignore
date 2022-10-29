@@ -25,3 +25,4 @@ pnpm-debug.log*
 #Test or playground files
 coverage
 /src/playground.js
+test.py

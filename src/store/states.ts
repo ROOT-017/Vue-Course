@@ -7,6 +7,8 @@ const state = (): GlobalState => {
     selectedOrganisations: [],
     onJobPage: false,
     selectedJobTypes: [],
+    degrees: [],
+    selectedDegrees: [],
   };
 };
 

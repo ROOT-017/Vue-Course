@@ -34,9 +34,13 @@
 import { computed, onMounted, defineComponent } from "vue";
 //import { useStore } from "vuex";
 //import { useRoute } from "vue-router";
-import { useFilteredJobs, useFetchJobsDispatch } from "@/store/composables";
-//import { FETCH_JOBS } from "@/store/contants";
-//import { FETCH_JOBS, FILTERED_JOBS } from "@/store/contants";
+import {
+  useFilteredJobs,
+  useFetchJobsDispatch,
+  useFetchdegreesDispatch,
+} from "@/store/composables";
+//import { FETCH_JOBS } from "@/store/constant";
+//import { FETCH_JOBS, FILTERED_JOBS } from "@/store/constant";
 import JobListing from "@/components/jobResults/JobListing.vue";
 
 import useCurrentPage from "@/composables/useCurrentPage";
@@ -89,6 +93,7 @@ export default defineComponent({
     //     return this.FILTERED_JOBS.slice(firstJobIndex, lastJobIndex);
     //   },
     onMounted(useFetchJobsDispatch);
+    onMounted(useFetchdegreesDispatch);
     return {
       displayJobs,
       currentPage,

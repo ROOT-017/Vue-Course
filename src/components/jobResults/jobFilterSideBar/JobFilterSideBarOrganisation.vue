@@ -26,7 +26,7 @@
 
 <script>
 //import { mapGetters, mapMutations } from "vuex";
-import { ADD_SELECTED_ORGANISATIONS } from "@/store/contants";
+import { ADD_SELECTED_ORGANISATIONS } from "@/store/constant";
 import { ref } from "vue";
 import { useStore } from "vuex";
 import { useUniqueOrganisation } from "@/store/composables";

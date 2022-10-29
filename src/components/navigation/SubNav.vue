@@ -16,7 +16,7 @@
 
 <script lang="ts">
 // import { mapGetters } from "vuex";
-// import { FILTERED_JOBS } from "@/store/contants";
+// import { FILTERED_JOBS } from "@/store/constant";
 
 // import { computed } from "vue";
 // import { useStore } from "vuex";
