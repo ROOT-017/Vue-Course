@@ -30,6 +30,9 @@ import { useRouter } from "vue-router";
 
 import AccordionVue from "@/shared/AccordionVue.vue";
 import { Key } from "@/store";
+//import mutations from "@/store/mutations";
+
+import { CLEAR_USER_JOB_FILTER_SELECTIONS } from "@/store/constant";
 
 export default defineComponent({
   name: "JobFiltersSideBarCheckboxGroup",
@@ -56,6 +59,11 @@ export default defineComponent({
 
     const selectedValues = ref<string[]>([]);
 
+    store.subscribe((mutation) => {
+      if (mutation.type === CLEAR_USER_JOB_FILTER_SELECTIONS) {
+        selectedValues.value = [];
+      }
+    });
     // const uniqueOrganisation = useUniqueOrganisation();
 
     const selectValue = () => {
