@@ -8,4 +8,5 @@ export interface GlobalState {
   onJobPage: boolean;
   degrees: Degree[];
   selectedDegrees: string[];
+  skillsSearchTerm: string;
 }

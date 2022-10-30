@@ -8,14 +8,17 @@
         <div class="flex items-center text-sm">
           <ActionButton
             button-text="Clear Filter"
-            @click="clearUserJobSelections"
             type="secondary"
+            @click="clearUserJobSelections"
           />
         </div>
       </div>
       <!-- <AccordionVue header="Degree's"></AccordionVue> -->
       <!-- <JobFilterSideBarJobTypesVue />
       <JobFilterSideBarOrganisationVue /> -->
+      <AccordionVue header="Skills and Qualfications">
+        <JobFiltersSideBarSkills />
+      </AccordionVue>
       <JobFiltersSideBarCheckboxGroupVue
         header="Degree's"
         :unique-values="uniqueDegree"
@@ -49,25 +52,30 @@ import {
   useUniqueDegree,
 } from "@/store/composables";
 
-import { defineComponent } from "vue";
+import { useStore } from "vuex";
+import { Key } from "@/store";
+import { defineComponent, onMounted } from "vue";
 import {
   ADD_SELECTED_JOB_TYPES,
   ADD_SELECTED_ORGANISATIONS,
   ADD_SELECTED_JOB_DEGREE,
   CLEAR_USER_JOB_FILTER_SELECTIONS,
+  UPDATE_SKILLS_SEARCH_TERM,
 } from "@/store/constant";
 
-import { useStore } from "vuex";
-
-import { Key } from "@/store";
+import JobFiltersSideBarSkills from "@/components/jobResults/jobFilterSideBar/JobFiltersSideBarSkills.vue";
+import { useRoute } from "vue-router";
+import AccordionVue from "@/shared/AccordionVue.vue";
 export default defineComponent({
   name: "JobFilterSideBar",
   components: {
     ActionButton,
+    JobFiltersSideBarSkills,
     //JobFilterSideBarOrganisationVue,
     // AccordionVue,
     //  JobFilterSideBarJobTypesVue,
     JobFiltersSideBarCheckboxGroupVue,
+    AccordionVue,
   },
   setup() {
     const store = useStore(Key);
@@ -81,6 +89,15 @@ export default defineComponent({
     const clearUserJobSelections = () => {
       store.commit(CLEAR_USER_JOB_FILTER_SELECTIONS);
     };
+
+    const parseSkillSaerchTerm = () => {
+      const store = useStore(Key);
+      const route = useRoute();
+      const role = route.query.role || "";
+      store.commit(UPDATE_SKILLS_SEARCH_TERM, role);
+    };
+
+    onMounted(parseSkillSaerchTerm);
 
     return {
       uniqueJobTypes,
