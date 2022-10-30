@@ -32,7 +32,11 @@
           </ul>
         </nav>
         <div class="flex items-center h-full ml-auto">
-          <ProfileImage v-if="isLoggedIn" data-test="profile-image" />
+          <ProfileImage
+            v-if="isLoggedIn"
+            data-test="profile-image"
+            @click="LOGIN_USER"
+          />
 
           <ActionButton
             v-else
@@ -46,7 +50,6 @@
       <SubNav v-if="isLoggedIn" />
     </div>
   </header>
-  <div></div>
 </template>
 
 <script lang="ts">
@@ -63,7 +66,7 @@ export default defineComponent({
   name: "MainNav",
   components: {
     ActionButton,
-    ProfileImage, //
+    ProfileImage,
     SubNav,
   },
 

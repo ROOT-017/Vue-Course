@@ -13,7 +13,7 @@ import { Degree, Job } from "@/api/types";
 
 const mutations = {
   [LOGIN_USER](state: GlobalState) {
-    state.isLoggedIn = true;
+    state.isLoggedIn = !state.isLoggedIn;
   },
   [RECIEVED_JOBS](state: GlobalState, jobs: Job[]) {
     state.jobs = jobs;
