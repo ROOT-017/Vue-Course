@@ -17,6 +17,7 @@
     "autoprefixer": "^10",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "framer-motion": "^7.6.5",
     "json-server": "^0.17.0",
     "postcss": "^8",
     "tailwindcss": "^3",

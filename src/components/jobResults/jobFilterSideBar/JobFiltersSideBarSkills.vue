@@ -14,6 +14,7 @@ import { Key } from "@/store";
 import { useStore } from "vuex";
 import { UPDATE_SKILLS_SEARCH_TERM } from "@/store/constant";
 import { defineComponent, computed } from "vue";
+
 export default defineComponent({
   name: "JobFiltersSideBarSkills",
   setup() {

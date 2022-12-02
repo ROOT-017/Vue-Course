@@ -12,14 +12,22 @@
         <div class="flex items-center justify-center">
           <router-link
             v-if="previousPage"
-            :to="{ name: 'JobResult', query: { page: previousPage } }"
+            :to="{
+              name: 'JobResult',
+              query: {
+                page: previousPage,
+              },
+            }"
             class="mr-2 text-brand-blue-1"
             >Previous</router-link
           >
 
           <router-link
             v-if="nextPage"
-            :to="{ name: 'JobResult', query: { page: nextPage } }"
+            :to="{
+              name: 'JobResult',
+              query: { page: nextPage },
+            }"
             class="mr-2 text-brand-blue-1"
             >Next</router-link
           >
